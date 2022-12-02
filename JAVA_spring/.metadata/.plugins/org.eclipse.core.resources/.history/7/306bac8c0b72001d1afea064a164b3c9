@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>DW 로그인</h3>
+    <input id="userId" type="text" placeholder="아이디를 입력하시오"/>
+    <input id="userName" type="text" placeholder="아이디를 입력하시오"/>
+    <input id="userPw" type="password" placeholder="비밀번호를 입력하시오"/>
+    <button type="button" onclick="doJoin()">회원가입</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+<script type="text/javascript"/></script>
+  
+  <script>
+  
+    function doJoin(){
+    	let userId = $('#userId').val();
+    	if(userId === ''){
+	    	alert('아이디를 입력하시오');
+	    	$('#userId').focus();
+	    	return false;
+    	}
+    	let userName = $('#userName').val();
+    	if(userName === ''){
+    	alert('이름을 입력하시오');
+    	$('#userName').focus();
+    	return false;
+    	}
+    	let userPw = $('#userPw').val();
+    	if(userPw === ''){
+	    	alert('비밀번호를 입력하시오');
+	    	$('#userPw').focus();
+	    	return false;
+    	}
+    	//ajax
+    	
+    	function doJoin(){
+    		console.log(data);
+    		$.ajax({
+    			url: '/api/v1/login3',
+    			type: 'POST',
+    			contentType: 'application/json',
+    			data : JSON.stringify(data),
+    			dataType: 'json',
+    				success: function  (response){
+    					console.log(response);
+    				}
+    		
+    		});
+    		
+    	}
+    	
+    	
+    	
+    }
+   </script>
+</html>

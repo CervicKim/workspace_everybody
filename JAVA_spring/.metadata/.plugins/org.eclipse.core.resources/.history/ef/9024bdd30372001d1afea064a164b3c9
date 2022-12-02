@@ -1,0 +1,12 @@
+public class Login3 {
+
+	private String A;
+	private String B;
+	private String C;
+	private String D;
+	private String E;
+	private String F;
+	
+	
+	
+}

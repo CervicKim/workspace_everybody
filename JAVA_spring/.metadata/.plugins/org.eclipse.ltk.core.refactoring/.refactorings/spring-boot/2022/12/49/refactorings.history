@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring-boot/src/main/java/com/example/demo/vo/login3&apos; to &apos;login3.java&apos;" description="Rename resource &apos;login3&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/example/demo/vo/login3" name="login3.java" stamp="1669959434587" updateReferences="true"/>
+</session>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="test/|코딩테스트_준비/|house/|자바0913/|자바0927/|자바0929/|자바221114/|자바221115/" kind="src" path="am_study_OLD/src"/>
+	<classpathentry kind="src" path="am_study_OLD/src/자바0913"/>
+	<classpathentry kind="src" path="am_study_OLD/src/자바0927"/>
+	<classpathentry kind="src" path="am_study_OLD/src/자바0929"/>
+	<classpathentry kind="src" path="am_study_OLD/src/자바221114"/>
+	<classpathentry kind="src" path="am_study_OLD/src/자바221115"/>
+	<classpathentry kind="src" path="am_study_OLD/src/코딩테스트_준비"/>
+	<classpathentry kind="src" path="am_study_OLD/src/house"/>
+	<classpathentry kind="src" path="am_study_OLD/src/test"/>
+	<classpathentry kind="output" path="am_study_OLD/bin"/>
+</classpath>
