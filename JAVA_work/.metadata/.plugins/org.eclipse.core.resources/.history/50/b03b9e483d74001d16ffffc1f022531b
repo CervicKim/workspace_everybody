@@ -1,0 +1,19 @@
+package class501;
+//프로퍼티의 사용: 각국 다양한 버전으로 번역을 해놓고, 들어오는 유저의 지역을 감지해서 때에 맞는 번역을 보여준다..?
+import java.util.HashMap;
+
+public class main_method {
+	public static Map<String,ban_active> map =  new HashMap<>();
+	
+	Public static void init() {
+		ResourceBundle rb = ResourceBundle.getBundle("ban");
+		//resourcebundle은 prop 파일 읽어들일 때 주로 사용
+		//웹에서 bundle의 사용처는 접속한 local(국가)에 따라 언어별 페이지 보여줄 때 사용되기도 함.
+		
+	}
+
+	public static void main(Stringp[] args) {
+		
+		
+	}
+}

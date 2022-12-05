@@ -1,0 +1,14 @@
+package class501;
+
+import java.util.ResourceBundle;
+
+public class main_method {
+
+	public static map<String,ban_active> map =  new HashMap<>();
+	
+	Public static void init() {
+		ResourceBundle rb = ResourceBundle.getBundle("ban");
+
+	}
+
+}

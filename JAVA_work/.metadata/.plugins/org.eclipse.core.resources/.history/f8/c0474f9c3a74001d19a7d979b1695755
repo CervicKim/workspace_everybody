@@ -1,0 +1,9 @@
+package class501;
+
+Public class chair implements bac_active{
+	@Override
+	Public String action(String msg){
+	System.out.println("의자이다");
+	return null;
+	}
+}
