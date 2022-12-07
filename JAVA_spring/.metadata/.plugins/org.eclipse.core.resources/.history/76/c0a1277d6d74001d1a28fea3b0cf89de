@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>DW 로그인</h3>
+    <input id="userId" type="text" placeholder="아이디를 입력하시오"/>
+    <input id="userName" type="text" placeholder="아이디를 입력하시오"/>
+    <input id="userPw" type="password" placeholder="비밀번호를 입력하시오"/>
+    <button type="button" onclick="doJoin()">회원가입</button>
+    <button type="button" onclick="doCheck()">아이디 중복 확인</button>
+    
+    <h2>DW 로그인</h2>
+	<input id="i_userId" type="text" placeholder="아이디를 입력해주세요..." />
+	<input id="i_userName" type="password" placeholder="비밀번호를 입력해주세요..." />
+	<button type="button" onclick="doLogin()">로그인</button>
+	
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+  
+//아이디 중복 체크! (두체크를 온클릭에넣어서 버튼을 만든다.
+	function doCheck(){
+	
+	
+	var id = $('$userId').val();
+	$.ajax({
+		url : '/api/v1/emp',
+		type : 'GET',
+		dataType : 'json',
+		success : function(response) {
+			var html = '';
+			for (var i = 0; i < response.length; i++) {
+				html += '<tr><td>' + response[i].empno + '</td><td>'
+						+ response[i].ename + '</td><td>' + response[i].job
+						+ '</td><td>' + response[i].sal + '</td><td>'
+						+ response[i].hiredate + '</td></tr>';
+			}
+			$('#data').append(html);
+		}
+	});
+}
+ 
+ 
+ 
+    function doJoin(){
+    	//자바스크립트를 이용해섯 빈칸 체크하기
+		var id = $('#userId').val();
+		var name = $('#userName').val();
+		var pw = $('#userPw').val();
+		
+    	
+    	if(userId === ''){
+	    	alert('아이디를 입력하시오');
+	    	$('#userId').focus();
+	    	return false;
+    	}
+    
+    	if(userName === ''){
+    	alert('이름을 입력하시오');
+    	$('#userName').focus();
+    	return false;
+    	}
+    	
+    	if(userPw === ''){
+	    	alert('비밀번호를 입력하시오');
+	    	$('#userPw').focus();
+	    	return false;
+    	}
+    	
+    	//ajax
+
+		var jsonData = {
+			"id" : id,
+			"name" : name,
+			"pw" : pw
+		};
+    	
+    	function doJoin(){
+    		console.log(data);
+    		$.ajax({
+    			url: '/api/v1/users',
+    			type: 'POST',
+    			contentType: 'application/json', //
+    			data : JSON.stringify(jsondata),
+    			dataType: 'json',
+    				success: function(response){
+    					alert('성공');
+    					location.reload(); //새로고침!
+    					if(response == 1){
+    						//페이지 이동 로직구현 예정
+    						location.href = '/users';
+    					}else{
+    						alert('아이디 혹은 비밀번호가 틀렸습니다');
+    					
+    					}
+    				}
+    		
+    		});
+    		
+    	}
+    	
+    	
+    	
+    }
+   </script>
+</html>

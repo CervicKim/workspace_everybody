@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+body{margin: 0;
+	padding: 0;
+	}
+	
+table {
+	margin: 50px auto; width : 1000px;
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	width: 1200px;
+	}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+		}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+	}
+</style>
+</head>
+<body>
+	<h2>EMP</h2>
+	
+	<input id="empno" type="text" placeholder="사원번호를 입력하세요."/>
+	<input id="ename" type="text" placeholder="사원이름을 입력하세요."/>
+	<input id="job" type="text" placeholder="사원직책을 입력하세요."/>
+	<input id="sal" type="text" placeholder="사원급여를 입력하세요."/>
+	<button type="button" onclick="join()">사원 추가</button>
+	
+	<h3>사원 삭제</h3>
+	<input id="d_empno" type="text" placeholder="사원번호를 입력해주세요....."/>
+	<button type="button" onclick="doDelete()">사원 삭 to the 제</button>
+	
+	<h3>사원 수정</h3>
+	<input id="u_empno" type="text" placeholder="사원번호를 입력해주세요..."/>
+	<input id="u_job" type="text" placeholder="사원직책을 입력하세요."/>
+	<input id="u_sal" type="text" placeholder="사원급여를 입력하세요."/>
+	<button type="button" onclick="doUpdate()">수정🎄🎄</button>
+	
+	<table>
+		<tr>
+			<th>사원번호</th>
+			<th>사원이름</th>
+			<th>직업</th>
+			<th>급여</th>
+			<th>입사날짜</th>
+		</tr>
+		<tbody id="data">
+		</tbody>
+	</table>
+</body>
+</style>
+</body>
+</html>

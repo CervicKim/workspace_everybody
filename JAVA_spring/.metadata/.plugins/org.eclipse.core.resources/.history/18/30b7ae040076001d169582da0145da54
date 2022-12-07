@@ -1,0 +1,8 @@
+package com.dw.emp.mapper;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public interface EmpMapper {
+
+}

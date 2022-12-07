@@ -1,0 +1,7 @@
+## \ub370\uc774\ud130 \ubca0\uc774\uc2a4 \uc124\uc815
+spring:
+  datasource:
+    driver-class-name:
+    url:
+    username:
+    password:

@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.vo.UsersVO;
+
+@SpringBootTest
+class DemoApplicationTests {
+
+	@Autowired
+	EmpMapper emlMapper;
+	
+	
+	//작성한 쿼리 테스트하기!
+	@Test
+	void contextLoads() {
+		
+		UsersVO vo = new UsersVO();
+		vo.setId("id");
+		
+		System.out.println("id : "+ vo.getId());
+		System.out.println("pw : "+ vo.getPw());
+		
+		int empMapper.selectUsersFindById(null);
+	}
+
+}

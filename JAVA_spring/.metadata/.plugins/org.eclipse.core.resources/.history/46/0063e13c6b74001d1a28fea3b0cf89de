@@ -1,0 +1,14 @@
+package com.example.demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class DemoApplicationTests {
+
+	//작성한 쿼리 테스트하기!
+	@Test
+	void contextLoads() {
+	}
+
+}
