@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-	<style>
-body{margin: 0;
+<style>
+body {
+	margin :0;
 	padding: 0;
+	box-sizing: border-box;
 	}
+	
+	.container{
+	margin: 50 auto;}
 	
 table {
 	margin: 50px auto; width : 1000px;
@@ -16,38 +19,37 @@ table {
 	border-collapse: collapse;
 	width: 100%;
 	width: 1200px;
-	}
+}
 
 td, th {
 	border: 1px solid #dddddd;
 	text-align: left;
 	padding: 8px;
-		}
+}
 
 tr:nth-child(even) {
 	background-color: #dddddd;
-	}
-	</style>
+}
+tr:hover{ 
+		cursor: pointer;
+}
+</style>
 </head>
 <body>
-	<h2>EMP</h2>
-	
-	<input id="empno" type="text" placeholder="사원번호를 입력하세요."/>
-	<input id="ename" type="text" placeholder="사원이름을 입력하세요."/>
-	<input id="job" type="text" placeholder="사원직책을 입력하세요."/>
-	<input id="sal" type="text" placeholder="사원급여를 입력하세요."/>
-	<button type="button" onclick="join()">사원 추가</button>
-	
-	<h3>사원 삭제</h3>
-	<input id="d_empno" type="text" placeholder="사원번호를 입력해주세요....."/>
-	<button type="button" onclick="doDelete()">사원 삭 to the 제</button>
-	
-	<h3>사원 수정</h3>
-	<input id="u_empno" type="text" placeholder="사원번호를 입력해주세요..."/>
-	<input id="u_job" type="text" placeholder="사원직책을 입력하세요."/>
-	<input id="u_sal" type="text" placeholder="사원급여를 입력하세요."/>
-	<button type="button" onclick="doUpdate()">수정</button>
-	
+<!-- 사원 상세 정보 -->
+<h3>사원 정보</h3>
+<input id="ename" disabled="disabled" placeholder="사원 이름">
+<input id="comm" disabled="disabled" placeholder="사원 보너스">
+<input id="sal" disabled="disabled" placeholder="사원 급여">
+
+<!-- 사원 삭제 -->
+<!-- 사원 수정 -->
+<!-- 사원 추가 -->
+
+<!-- 이 4가지를 무한 연습..!!!ㅠㅠㅠㅠㅠㅠㅠㅠㅠ -->
+
+	<h2>안녕하세요 여기는 EMP 화면 입니다.</h2>
+<div class="container">
 	<table>
 		<tr>
 			<th>사원번호</th>
@@ -59,5 +61,47 @@ tr:nth-child(even) {
 		<tbody id="data">
 		</tbody>
 	</table>
+</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	callApi();
+	
+	function callApi() {
+		$.ajax({
+			url : '/api/v1/emp',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					html += '<tr onclick="getEmp('+response[i].empno+')"><td>' + response[i].empno + '</td><td>'							+ response[i].ename +'</td><td>'
+							+ response[i].comm + '</td><td>' 
+							+ response[i].sal + '</td><td>';
+							
+				}
+				$('#data').append(html);
+			}
+		});
+	}
+	
+
+	function getEmp(empno){
+		$.ajax({
+			url : '/api/v1/emp'+empno,
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				$('#ename').val(response.ename);
+				$('#comm').val(response.comm);
+				$('#sal').val(response.sal);
+			}
+		});
+	}
+	
+	
+	
+</script>
 </html>
