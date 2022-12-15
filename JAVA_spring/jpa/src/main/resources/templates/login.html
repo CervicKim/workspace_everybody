@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="아이디를 입력하시오">
+    <input type="text" placeholder="비밀번호를 입력하시오">
+    <button onclick="doLogin()">로그인</button>
+</body>
+<script>
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+</script>
+<script>
+    function doLogin(){
+
+        //로그인 Ajax 구현...................................................
+        $.ajax({
+			url : '/api/v1/emp',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					html += '<tr onclick="getEmp('+response[i].empno+')"><td>' + response[i].empno + '</td><td>'
+							+ response[i].ename + '</td><td>' + response[i].job
+							+ '</td><td>' + response[i].sal + '</td><td>'
+							+ response[i].hiredate + '</td><td>'
+							+ response[i].dname + '</td><td>' + response[i].loc
+							+ '</td></tr>';
+				}
+				$('#data').append(html);
+        
+        function doLogin(){
+		$.ajax({
+			url : '/api/v1/member/'+member,
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				$('#ename').val(response.ename);
+				$('#comm').val(response.comm);
+				$('#sal').val(response.sal);
+            }}
+        )}
+    }
+})
+    }
+</script>
+</html>
